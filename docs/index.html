@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precursor Ventures: fund diligence snapshot</title>
+<meta name="description" content="Independent fund diligence snapshot of Precursor Ventures built from public data: SEC Form D filings, the firm's site and archive, company websites and press.">
+<style>
+:root{
+  --color-fg:#2b1f24;--color-fg-muted:#6f6676;--color-bg:#f8f3ef;--color-panel:#fffdfb;--color-border-line:#e6dbd2;
+  --color-ok:#2f7a4d;--color-warn:#a86a12;--color-bad:#b3423c;
+  --cds-gap-xs:4px;--cds-gap-sm:8px;--cds-gap-md:12px;--cds-gap-lg:16px;--cds-gap-xl:28px;--cds-pad-lg:16px;--cds-radius:8px;
+  --cds-font-size-caption:12px;--cds-font-size-body:14px;--cds-font-size-heading:17px;--cds-font-size-title:28px;--cds-font-weight-medium:600;
+  --cds-text-secondary:#6f6676;--cds-surface-popover:#fffdfb;--cds-border:#e2d6cc;--cds-shadow-popover:0 4px 14px rgba(60,30,30,.14);
+  --cds-chart-muted:#d9cbbf;--cds-chart-axis:#bfb2a6;--cds-chart-grid:#ebe1d8;--cds-dur-slow:.15s;--cds-ease-out:cubic-bezier(.2,.8,.2,1);
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-fg:#f1e9e4;--color-fg-muted:#b0a6ad;--color-bg:#1e1a1c;--color-panel:#28222a;--color-border-line:#3b3337;
+    --color-ok:#6cc08d;--color-warn:#e0a24a;--color-bad:#ec7d75;
+    --cds-text-secondary:#b0a6ad;--cds-surface-popover:#2c2528;--cds-border:#4a4044;--cds-shadow-popover:0 4px 14px rgba(0,0,0,.5);
+    --cds-chart-muted:#4a3f42;--cds-chart-axis:#6b5f63;--cds-chart-grid:#352d30;
+  }
+}
+html,body{margin:0;background:var(--color-bg);color:var(--color-fg)}
+#dash-root{max-width:1200px;margin:0 auto;padding:32px 20px 48px;font-size:var(--cds-font-size-body)}
+.dash-select{font:inherit;font-size:var(--cds-font-size-body);padding:4px 28px 4px 8px;border:1px solid var(--color-border-line);border-radius:8px;background-color:var(--color-panel);color:var(--color-fg)}
+@media (max-width:480px){#dash-root{padding:20px 16px 40px}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400..700&family=Playfair+Display:wght@500..700&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="dash-shim.js"></script>
+</head>
+<body>
+<main id="dash-root">
+<style>
+.pv{--pv-ink:color-mix(in oklab,#994e4d 82%,var(--color-fg));--pv-panel:color-mix(in oklab,#e0a57d 15%,var(--color-bg));
+--pv-solid:color-mix(in oklab,#994e4d 92%,var(--color-bg));--pv-solid-label:#f6d6c2;--pv-bar-hi:color-mix(in oklab,#994e4d 82%,var(--color-fg));--pv-bar:color-mix(in oklab,#e0a57d 45%,var(--color-bg));
+--pv-lav:color-mix(in oklab,#908aa0 75%,var(--color-fg));--pv-r:.75rem;--pv-serif:'Playfair Display',Georgia,'Times New Roman',serif;
+display:grid;grid-template-columns:minmax(0,1fr);gap:var(--cds-gap-xl);font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--color-fg);container-type:inline-size}
+.pv>*{min-width:0}
+.pv h1{font-family:var(--pv-serif);font-weight:600;font-size:clamp(1.5rem,3.2cqi,2.25rem);line-height:1.2;color:var(--pv-ink);margin:var(--cds-gap-xs) 0 var(--cds-gap-sm);max-width:34ch}
+.pv h2{font-family:var(--pv-serif);font-size:1.2rem;font-weight:600;color:var(--pv-ink);margin:0 0 var(--cds-gap-sm);max-width:60ch;line-height:1.3}
+.pv h3{font-family:var(--pv-serif);font-size:1.05rem;font-weight:600;color:var(--pv-ink);margin:0;line-height:1.25}
+.pv h3.pv-sub{font-size:var(--cds-font-size-body);margin:var(--cds-gap-lg) 0 var(--cds-gap-xs)}
+.pv p{margin:0;max-width:70ch;line-height:1.45}
+.pv b{font-variant-numeric:tabular-nums}
+.pv .pv-muted{color:var(--color-fg-muted);font-size:var(--cds-font-size-caption)}
+.pv .pv-cite{color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);font-style:italic}
+.pv-label{color:var(--pv-lav);font-size:var(--cds-font-size-caption);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.pv-ink{color:var(--pv-ink)}
+.pv-panel{border-radius:var(--pv-r);background:var(--pv-panel);padding:var(--cds-pad-lg) calc(var(--cds-pad-lg) + 4px)}
+.pv-issue{display:flex;gap:var(--cds-gap-lg);align-items:center}
+.pv-issue p{font-size:1.05rem}
+.pv-circle{flex:none;width:7.5rem;height:7.5rem;border-radius:50%;background:var(--pv-solid);color:#fff;display:grid;place-items:center;font-size:2rem;font-weight:700;font-variant-numeric:tabular-nums}
+.pv-dot{flex:none;width:2rem;height:2rem;border-radius:50%;background:var(--pv-solid);color:#fff;display:grid;place-items:center;font-weight:700}
+.pv-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--cds-gap-md)}
+.pv-find{display:grid;gap:var(--cds-gap-sm);align-content:start}
+.pv-find-head{display:flex;gap:var(--cds-gap-md);align-items:center}
+.pv-next{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1.2fr);gap:var(--cds-gap-lg);align-items:end}
+.pv-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:var(--cds-gap-sm)}
+.pv-step{position:relative;border-radius:var(--pv-r);background:var(--pv-panel);padding:var(--cds-pad-lg);display:grid;gap:2px;align-content:start}
+.pv-step b{color:var(--pv-ink);font-size:1.05rem}
+.pv-step:not(:last-child)::after{content:'';position:absolute;right:-17px;top:50%;transform:translateY(-50%);border:6px solid transparent;border-left:12px solid var(--pv-bar)}
+.pv-bottom{border-radius:var(--pv-r);background:var(--pv-solid);color:#fff;padding:var(--cds-pad-lg) calc(var(--cds-pad-lg) + 4px);display:grid;gap:var(--cds-gap-xs)}
+.pv-bottom-label{color:var(--pv-solid-label);font-weight:700;font-size:1.05rem}
+.pv-bottom p{color:#fff}
+@container (max-width:720px){
+  .pv-three,.pv-next,.pv-steps{grid-template-columns:minmax(0,1fr)}
+  .pv-step:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-17px;transform:translateX(-50%);border:6px solid transparent;border-top:12px solid var(--pv-bar)}
+  .pv-circle{width:5.5rem;height:5.5rem;font-size:1.5rem}
+}
+.pv-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--cds-gap-md);margin:var(--cds-gap-md) 0}
+.pv-num{font-family:var(--pv-serif);font-weight:600;font-size:2rem;line-height:1.1;color:var(--pv-ink);font-variant-numeric:tabular-nums}
+.pv-chart{position:relative;min-height:120px;margin-top:var(--cds-gap-md)}
+.pv-chart text{font-size:var(--cds-font-size-caption);fill:var(--cds-text-secondary)}
+.pv-chart text.pv-val{fill:var(--color-fg);font-variant-numeric:tabular-nums}
+.pv-chart text.pv-hi{fill:var(--pv-ink);font-weight:700}
+.pv-tip{position:absolute;border-radius:8px;pointer-events:none;background:var(--cds-surface-popover);border:1px solid var(--cds-border);box-shadow:var(--cds-shadow-popover);padding:6px 8px;font-size:var(--cds-font-size-caption);max-width:240px}
+.pv-scroll{overflow-x:auto}
+.pv-tall{max-height:420px;overflow-y:auto}
+.pv table{border-collapse:collapse;width:100%;font-size:var(--cds-font-size-body);margin-top:var(--cds-gap-md)}
+.pv th,.pv td{text-align:left;padding:6px 10px 6px 0;border-bottom:1px solid var(--color-border-line);vertical-align:top}
+.pv th{color:var(--pv-ink);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+.pv td.pv-r,.pv th.pv-r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pv td.pv-nw{white-space:nowrap}
+.pv a{color:var(--pv-ink)}
+.pv ul{margin:0;padding-left:1.2em;max-width:70ch;display:grid;gap:var(--cds-gap-xs);line-height:1.45}
+.pv-row{display:flex;gap:var(--cds-gap-md);align-items:center;flex-wrap:wrap;margin:var(--cds-gap-sm) 0}
+.pv details.pv-app{border-top:2px solid var(--pv-bar);padding-top:var(--cds-gap-lg)}
+.pv details.pv-app>summary{cursor:pointer;color:var(--pv-ink);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:var(--cds-font-size-body)}
+.pv-appbody{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--cds-gap-xl);margin-top:var(--cds-gap-lg)}
+.pv-appbody>*{min-width:0}
+
+
+.pv-four{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--cds-gap-md)}
+.pv a.pv-find{color:inherit;text-decoration:none}
+.pv a.pv-find:hover,.pv a.pv-find:focus-visible{outline:2px solid var(--pv-bar-hi);outline-offset:-2px}
+.pv-chapter{border-top:2px solid var(--pv-bar);padding-top:var(--cds-gap-lg);display:grid;gap:var(--cds-gap-sm)}
+.pv-chapter>*{min-width:0}
+.pv-chap-label{display:flex;gap:var(--cds-gap-sm);align-items:center}
+.pv-chap-label .pv-dot{width:1.6rem;height:1.6rem;font-size:var(--cds-font-size-caption)}
+.pv-steps-label{margin-top:var(--cds-gap-md)}
+.pv-limits{margin-top:var(--cds-gap-md);color:var(--color-fg-muted);font-size:var(--cds-font-size-caption)}
+@container (max-width:900px){.pv-four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@container (max-width:520px){.pv-four{grid-template-columns:minmax(0,1fr)}}
+
+.pv table.pv-score td{padding:10px 12px 10px 0}
+.pv table.pv-score td:first-child{font-weight:700;min-width:190px}
+.pv table.pv-score td:first-child a{color:var(--pv-ink);text-decoration:none}
+.pv table.pv-score td:nth-child(2){min-width:280px}
+.pv-chip{display:inline-block;border-radius:999px;padding:2px 10px;font-size:var(--cds-font-size-caption);font-weight:700;white-space:nowrap}
+.pv-chip-yes{background:color-mix(in oklab,var(--color-ok) 16%,var(--color-bg));color:var(--color-ok)}
+.pv-chip-part{background:var(--pv-panel);color:var(--pv-ink)}
+.pv-chip-weak{background:color-mix(in oklab,var(--color-warn) 16%,var(--color-bg));color:var(--color-warn)}
+.pv-chip-no{background:color-mix(in oklab,var(--color-bad) 14%,var(--color-bg));color:var(--color-bad)}
+.pv-asks{display:grid;gap:var(--cds-gap-sm)}
+@container (max-width:640px){
+  .pv table.pv-score thead{display:none}
+  .pv table.pv-score tr{display:block;padding:10px 0;border-bottom:1px solid var(--color-border-line)}
+  .pv table.pv-score td{display:inline-block;border:0;padding:2px 8px 2px 0;min-width:0}
+  .pv table.pv-score td:first-child,.pv table.pv-score td:nth-child(2){display:block;min-width:0}
+  .pv table.pv-score td:nth-child(4){color:var(--color-fg-muted);font-size:var(--cds-font-size-caption)}
+  .pv table.pv-score td:nth-child(4)::before{content:'Confidence: '}
+}
+
+.pv-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:var(--cds-gap-md);margin-top:var(--cds-gap-sm)}
+.pv-kpi{border-radius:var(--pv-r);background:var(--pv-panel);padding:var(--cds-pad-lg);display:grid;gap:2px;align-content:start}
+.pv-kpi-num{font-family:var(--pv-serif);font-size:1.85rem;font-weight:600;line-height:1.1;color:var(--pv-ink);font-variant-numeric:tabular-nums}
+.pv-kpi-label{font-weight:700;font-size:var(--cds-font-size-body)}
+.pv-kpi-note{color:var(--color-fg-muted);font-size:var(--cds-font-size-caption)}
+.pv-grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--cds-gap-lg)}
+.pv-chartcard{background:var(--pv-panel);border-radius:var(--pv-r);padding:var(--cds-pad-lg);min-width:0}
+.pv-chartcard h3{font-size:1.05rem}
+@container (max-width:720px){.pv-grid2{grid-template-columns:minmax(0,1fr)}}
+
+.pv-kpi{position:relative;cursor:help}
+.pv-kpi:focus-visible{outline:2px solid var(--pv-bar-hi);outline-offset:2px}
+.pv-kpi-tip{position:absolute;left:0;top:calc(100% + 6px);z-index:10;width:max(100%,240px);box-sizing:border-box;background:var(--cds-surface-popover);color:var(--color-fg);border:1px solid var(--cds-border);box-shadow:var(--cds-shadow-popover);border-radius:8px;padding:8px 10px;font-size:var(--cds-font-size-caption);line-height:1.4;font-weight:400;opacity:0;visibility:hidden;pointer-events:none}
+.pv-kpis>.pv-kpi:last-child .pv-kpi-tip{left:auto;right:0}
+.pv-kpi:hover .pv-kpi-tip,.pv-kpi:focus .pv-kpi-tip,.pv-kpi:focus-within .pv-kpi-tip{opacity:1;visibility:visible}
+@media (prefers-reduced-motion:no-preference){.pv-kpi-tip{transition:opacity var(--cds-dur-slow,.15s) var(--cds-ease-out,ease-out)}}
+@media print{.pv-kpi-tip{display:none}}
+</style>
+<div class="pv">
+  <header id="top">
+    <div class="pv-label">Fund diligence snapshot</div>
+    <h1>Precursor Ventures</h1>
+    <p class="pv-muted">Pre-seed and seed. San Francisco. Founded 2015. Public data as of November 2026.<br>Independent analysis of public sources; not affiliated with Precursor Ventures.</p>
+  </header>
+
+  <section id="kpi-fund">
+    <div class="pv-label">Fund</div>
+    <div class="pv-kpis">
+      <div class="pv-kpi" id="k-raised" tabindex="0" aria-describedby="k-raised-tip"><div class="pv-kpi-num">$<span data-draw="f-total" data-source="fund_stats" data-field="main_total_usd_m" data-row="0">—</span>M</div><div class="pv-kpi-label">Raised across main funds</div><div class="pv-kpi-note"><span data-draw="f-main" data-source="fund_stats" data-field="main_count" data-row="0">—</span> funds, I to V</div><div class="pv-kpi-tip" id="k-raised-tip" role="tooltip">Sum of Funds I to V. Funds I to IV from SEC Form D filings; Fund V from its April 2025 close. Excludes the Opportunity Fund and the Outgrowth vehicles.</div></div>
+      <div class="pv-kpi" id="k-largest" tabindex="0" aria-describedby="k-largest-tip"><div class="pv-kpi-num">$<span data-draw="fd-largest" data-source="fund_facts" data-field="largest_main_usd_m" data-row="0">—</span>M</div><div class="pv-kpi-label">Largest fund</div><div class="pv-kpi-note">Fund I: $<span data-draw="fd-first" data-source="fund_facts" data-field="first_main_usd_m" data-row="0">—</span>M</div><div class="pv-kpi-tip" id="k-largest-tip" role="tooltip">Fund IV (2021), from its Form D. Fund IV-A reports the same total and is treated as part of Fund IV, not added.</div></div>
+      <div class="pv-kpi" id="k-fundv" tabindex="0" aria-describedby="k-fundv-tip"><div class="pv-kpi-num">$<span data-draw="fd-vsold" data-source="fund_facts" data-field="fund_v_usd_m" data-row="0">—</span>M</div><div class="pv-kpi-label">Fund V final close</div><div class="pv-kpi-note">Apr 2025; target was $<span data-draw="fd-vtarget" data-source="fund_facts" data-field="fund_v_target_usd_m" data-row="0">—</span>M</div><div class="pv-kpi-tip" id="k-fundv-tip" role="tooltip">Final close reported by VCWire in April 2025. Fund V's Form D set a $120M target; its last filing (August 2024) showed $62.6M raised.</div></div>
+      <div class="pv-kpi" id="k-investors" tabindex="0" aria-describedby="k-investors-tip"><div class="pv-kpi-num"><span data-draw="fd-invmin" data-source="fund_facts" data-field="min_investors" data-row="0">—</span> to <span data-draw="fd-invmax" data-source="fund_facts" data-field="max_investors" data-row="0">—</span></div><div class="pv-kpi-label">Investors per fund</div><div class="pv-kpi-note">From SEC filings</div><div class="pv-kpi-tip" id="k-investors-tip" role="tooltip">Investors listed in each main fund's latest Form D, smallest to largest. Fund V's count dates from its August 2024 filing.</div></div>
+      <div class="pv-kpi" id="k-followon" tabindex="0" aria-describedby="k-followon-tip"><div class="pv-kpi-num">$<span data-draw="f-ogtotal" data-source="fund_stats" data-field="followon_total_usd_m" data-row="0">—</span>M</div><div class="pv-kpi-label">Follow-on vehicles</div><div class="pv-kpi-note"><span data-draw="f-og" data-source="fund_stats" data-field="followon_count" data-row="0">—</span> Outgrowth series, 2018 to 2022</div><div class="pv-kpi-tip" id="k-followon-tip" role="tooltip">Precursor Ventures Outgrowth series, each filing its own Form D from 2018 to 2022. They appear to fund follow-on checks outside the main funds.</div></div>
+    </div>
+  </section>
+
+  <section id="kpi-portfolio">
+    <div class="pv-label">Portfolio</div>
+    <div class="pv-kpis">
+      <div class="pv-kpi" id="k-named" tabindex="0" aria-describedby="k-named-tip"><div class="pv-kpi-num"><span data-draw="t-named" data-source="totals" data-field="named" data-row="0">—</span></div><div class="pv-kpi-label">Companies named</div><div class="pv-kpi-note"><span data-draw="t-current" data-source="totals" data-field="current" data-row="0">—</span> current; firm claims <span data-draw="t-claimed" data-source="totals" data-field="claimed" data-row="0">—</span>+</div><div class="pv-kpi-tip" id="k-named-tip" role="tooltip">Companies listed on precursorvc.com on 19 November 2026: current, alumni and founders view. Precursor says it has backed 500+, so unnamed companies are not covered.</div></div>
+      <div class="pv-kpi" id="k-pace" tabindex="0" aria-describedby="k-pace-tip"><div class="pv-kpi-num">~<span data-draw="f-pace" data-source="fund_stats" data-field="listed_per_year" data-row="0">—</span></div><div class="pv-kpi-label">New companies a year</div><div class="pv-kpi-note">Firm claims <span data-draw="k-pace">—</span></div><div class="pv-kpi-tip" id="k-pace-tip" role="tooltip">Companies first appearing in archived copies of Precursor's site from 2018 to 2024, divided by seven years. Precursor states 30 to 50 new investments a year.</div></div>
+      <div class="pv-kpi" id="k-thesis" tabindex="0" aria-describedby="k-thesis-tip"><div class="pv-kpi-num"><span data-draw="th-cap" data-source="thesis_fit" data-field="entry_under_cap_pct" data-row="0">—</span>%</div><div class="pv-kpi-label">First rounds within thesis</div><div class="pv-kpi-note">Rounds of <span data-draw="k-cap">—</span> or less</div><div class="pv-kpi-tip" id="k-thesis-tip" role="tooltip">Share of SEC-matched companies whose earliest filed round was $5M or less, Precursor's stated entry ceiling. A company's first filing can come after Precursor's check.</div></div>
+      <div class="pv-kpi" id="k-sector" tabindex="0" aria-describedby="k-sector-tip"><div class="pv-kpi-num"><span data-draw="s-toppct" data-source="sector_mix" data-field="share_pct" data-row="0">—</span>%</div><div class="pv-kpi-label">Largest sector</div><div class="pv-kpi-note"><span data-draw="s-first" data-source="sector_mix" data-field="sector" data-row="0">—</span></div><div class="pv-kpi-tip" id="k-sector-tip" role="tooltip">Share of current companies under Precursor's own sector label. Consumer is second.</div></div>
+    </div>
+  </section>
+
+  <section id="kpi-performance">
+    <div class="pv-label">Performance signals</div>
+    <div class="pv-kpis">
+      <div class="pv-kpi" id="k-seriesa" tabindex="0" aria-describedby="k-seriesa-tip"><div class="pv-kpi-num"><span data-draw="g-apct" data-source="graduation" data-field="share_pct" data-row="2">—</span>%</div><div class="pv-kpi-label">Reached Series A+</div><div class="pv-kpi-note">Of <span data-draw="r-companies" data-source="rounds_summary" data-field="companies" data-row="0">—</span> in SEC filings</div><div class="pv-kpi-tip" id="k-seriesa-tip" role="tooltip">Share of SEC-matched companies whose latest filed round was labelled Series A or later. Stages are assigned by round size, and unfiled rounds are missing, so this is a floor.</div></div>
+      <div class="pv-kpi" id="k-raisedagain" tabindex="0" aria-describedby="k-raisedagain-tip"><div class="pv-kpi-num"><span data-draw="fo-with" data-source="round_gaps" data-field="with_followon" data-row="0">—</span></div><div class="pv-kpi-label">Raised a later round</div><div class="pv-kpi-note">Median <span data-draw="fo-median" data-source="round_gaps" data-field="median_months" data-row="0">—</span> months apart</div><div class="pv-kpi-tip" id="k-raisedagain-tip" role="tooltip">SEC-matched companies with more than one filed round, leaving out extensions and bridges. The note gives the median months between rounds.</div></div>
+      <div class="pv-kpi" id="k-unicorns" tabindex="0" aria-describedby="k-unicorns-tip"><div class="pv-kpi-num"><span data-draw="o-unicorns" data-source="outcome_stats" data-field="billion_plus" data-row="0">—</span></div><div class="pv-kpi-label">Valued at $1B+</div><div class="pv-kpi-note">Current companies</div><div class="pv-kpi-tip" id="k-unicorns-tip" role="tooltip">Current companies with a reported round at a valuation of $1B or more: Incredible Health, Modern Health and Juniper Square. Source: press coverage.</div></div>
+      <div class="pv-kpi" id="k-acq" tabindex="0" aria-describedby="k-acq-tip"><div class="pv-kpi-num"><span data-draw="a-acq" data-source="alumni_tally" data-field="acquired" data-row="0">—</span></div><div class="pv-kpi-label">Acquisitions</div><div class="pv-kpi-note"><span data-draw="ex-strat" data-source="exit_timing" data-field="strategic" data-row="0">—</span> by operating companies; median <span data-draw="ex-years" data-source="exit_timing" data-field="median_years" data-row="0">—</span> yrs</div><div class="pv-kpi-tip" id="k-acq-tip" role="tooltip">Alumni-only companies acquired, nearly all confirmed by press. Few disclosed a price; the largest are The Athletic ($550M) and Caper (about $350M). Median years run from first listing on the site to the deal.</div></div>
+      <div class="pv-kpi" id="k-shut" tabindex="0" aria-describedby="k-shut-tip"><div class="pv-kpi-num"><span data-draw="a-shut" data-source="alumni_tally" data-field="shut_down" data-row="0">—</span></div><div class="pv-kpi-label">Likely inactive</div><div class="pv-kpi-note">Alumni-only companies</div><div class="pv-kpi-tip" id="k-shut-tip" role="tooltip">Alumni-only companies whose website is offline, parked or for sale. Based on website status only, so not confirmed closures.</div></div>
+      <div class="pv-kpi" id="k-warn" tabindex="0" aria-describedby="k-warn-tip"><div class="pv-kpi-num"><span data-draw="rk-flagged" data-source="risk_summary" data-field="flagged" data-row="0">—</span></div><div class="pv-kpi-label">Websites offline</div><div class="pv-kpi-note">Current companies</div><div class="pv-kpi-tip" id="k-warn-tip" role="tooltip">Current companies whose website could not be reached or was listed for sale on 22 November 2026. Worth a check-in; not a signal on its own.</div></div>
+    </div>
+  </section>
+
+  <section id="charts" class="pv-grid2">
+    <div class="pv-chartcard" id="c-funds">
+      <h3>Capital raised by fund</h3>
+      <div class="pv-chart" data-draw="fund-chart" data-source="fund_bars"></div>
+    </div>
+    <div class="pv-chartcard" id="c-sectors">
+      <h3>Current companies by sector</h3>
+      <div class="pv-chart" data-draw="sector-chart" data-source="sector_mix"></div>
+    </div>
+    <div class="pv-chartcard" id="c-stage">
+      <h3>Furthest stage reached</h3>
+      <div class="pv-chart" data-draw="grad-chart" data-source="graduation"></div>
+    </div>
+    <div class="pv-chartcard" id="c-outcomes">
+      <h3>Alumni-only company outcomes</h3>
+      <div class="pv-chart" data-draw="outcome-chart" data-source="outcome_mix"></div>
+    </div>
+  </section>
+
+  <section id="notable">
+    <div class="pv-label">Notable outcomes</div>
+    <div class="pv-scroll">
+      <table id="outcomes-table" data-source="outcomes" data-row-key="company">
+        <thead><tr><th data-field="company">Company</th><th data-field="list">List</th><th data-field="detail">What happened</th><th data-field="year" class="pv-r">Year</th><th data-field="round_usd_m" class="pv-r">Round, $M</th><th data-field="value_usd_m" class="pv-r">Price or valuation, $M</th><th data-field="source_name">Source</th></tr></thead>
+        <tbody data-draw="outcomes-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <details class="pv-app" id="appendix">
+    <summary>Limitations, method and data</summary>
+    <div class="pv-appbody">
+      <section id="ax-coverage-q">
+        <h3 class="pv-sub">What public data covers</h3>
+        <p class="pv-muted">Of 12 standard diligence questions: 4 answered, 4 partly, 1 weakly, 3 not at all.</p>
+        <div class="pv-scroll">
+          <table class="pv-score">
+        <thead><tr><th>Question</th><th>Public evidence</th><th>Status</th><th>Confidence</th></tr></thead>
+        <tbody>
+          <tr><td>Follows stated strategy?</td><td><b data-draw="th-cap" data-source="thesis_fit" data-field="entry_under_cap_pct" data-row="0">—</b>% of first rounds within <span data-draw="k-cap">—</span>; <b data-draw="th-early" data-source="thesis_fit" data-field="entry_early_pct" data-row="0">—</b>% pre-seed or seed.</td><td><span class="pv-chip pv-chip-yes">Answered</span></td><td>Medium</td></tr>
+          <tr><td>Sector concentration?</td><td>Two sectors hold <b data-draw="s-top2" data-source="sector_top2">—</b>% of current companies.</td><td><span class="pv-chip pv-chip-yes">Answered</span></td><td>Medium</td></tr>
+          <tr><td>Platform growing?</td><td><b data-draw="f-main" data-source="fund_stats" data-field="main_count" data-row="0">—</b> funds, $<b data-draw="fd-first" data-source="fund_facts" data-field="first_main_usd_m" data-row="0">—</b>M to $<b data-draw="fd-largest" data-source="fund_facts" data-field="largest_main_usd_m" data-row="0">—</b>M; <b data-draw="fd-invmin" data-source="fund_facts" data-field="min_investors" data-row="0">—</b> to <b data-draw="fd-invmax" data-source="fund_facts" data-field="max_investors" data-row="0">—</b> investors each.</td><td><span class="pv-chip pv-chip-yes">Answered</span></td><td>High</td></tr>
+          <tr><td>Current fund raising well?</td><td>Fund V closed at $<b data-draw="fd-vsold2" data-source="fund_facts" data-field="fund_v_usd_m" data-row="0">—</b>M in Apr 2025, <b data-draw="fd-vpct" data-source="fund_facts" data-field="fund_v_pct" data-row="0">—</b>% of its $<b data-draw="fd-vtarget2" data-source="fund_facts" data-field="fund_v_target_usd_m" data-row="0">—</b>M target.</td><td><span class="pv-chip pv-chip-yes">Answered</span></td><td>High (press)</td></tr>
+          <tr><td>Pace and follow-on funding?</td><td>~<b data-draw="f-pace" data-source="fund_stats" data-field="listed_per_year" data-row="0">—</b> named companies a year vs <span data-draw="k-pace">—</span> claimed; <b data-draw="f-og" data-source="fund_stats" data-field="followon_count" data-row="0">—</b> follow-on vehicles, $<b data-draw="f-ogtotal" data-source="fund_stats" data-field="followon_total_usd_m" data-row="0">—</b>M.</td><td><span class="pv-chip pv-chip-part">Partly</span></td><td>Medium</td></tr>
+          <tr><td>Companies progressing?</td><td><b data-draw="fo-with" data-source="round_gaps" data-field="with_followon" data-row="0">—</b> of <b data-draw="r-companies" data-source="rounds_summary" data-field="companies" data-row="0">—</b> raised again; <b data-draw="g-apct" data-source="graduation" data-field="share_pct" data-row="2">—</b>% reached Series A+.</td><td><span class="pv-chip pv-chip-part">Partly</span></td><td>Medium</td></tr>
+          <tr><td>Breakouts?</td><td><b data-draw="o-unicorns" data-source="outcome_stats" data-field="billion_plus" data-row="0">—</b> companies valued at $1B+.</td><td><span class="pv-chip pv-chip-part">Partly</span></td><td>High</td></tr>
+          <tr><td>Exits?</td><td><b data-draw="a-acq" data-source="alumni_tally" data-field="acquired" data-row="0">—</b> acquisitions, incl. The Athletic and Caper; few prices disclosed.</td><td><span class="pv-chip pv-chip-part">Partly</span></td><td>High</td></tr>
+          <tr><td>Inactive companies?</td><td><b data-draw="a-shut" data-source="alumni_tally" data-field="shut_down" data-row="0">—</b> likely inactive (website offline).</td><td><span class="pv-chip pv-chip-weak">Weak</span></td><td>Low</td></tr>
+          <tr><td>Returns (DPI, TVPI, IRR)?</td><td>Not public.</td><td><span class="pv-chip pv-chip-no">No</span></td><td>—</td></tr>
+          <tr><td>Ownership and marks?</td><td>Not public; only "first checks up to $500K".</td><td><span class="pv-chip pv-chip-no">No</span></td><td>—</td></tr>
+          <tr><td>Reserves?</td><td>Not public.</td><td><span class="pv-chip pv-chip-no">No</span></td><td>—</td></tr>
+        </tbody>
+      </table>
+        </div>
+      </section>
+
+      <section id="ax-dataroom">
+        <h3 class="pv-sub">Not public: request in diligence</h3>
+        <ul class="pv-asks">
+      <li><b>Returns:</b> DPI, TVPI and net IRR by fund.</li>
+      <li><b>Losses:</b> capital written off, by fund.</li>
+      <li><b>Ownership and marks:</b> top 20 positions; marking method.</li>
+      <li><b>Concentration:</b> top-5 share of each fund's value.</li>
+      <li><b>Reserves:</b> planned vs used; role of the Outgrowth vehicles.</li>
+      <li><b>Full portfolio:</b> the unnamed companies.</li>
+        </ul>
+      </section>
+
+      <section id="ax-reliability">
+        <h3 class="pv-sub">Reliability</h3>
+        <p class="pv-muted">The firm claims <b data-draw="t-claimed2" data-source="totals" data-field="claimed" data-row="0">—</b>+ companies; its site names <b data-draw="t-named2" data-source="totals" data-field="named" data-row="0">—</b> (<b data-draw="t-share" data-source="totals" data-field="share_pct" data-row="0">—</b>%), and every portfolio figure uses the named ones. Published portfolio counts range from <b data-draw="c-min" data-source="coverage_range" data-field="min" data-row="0">—</b> to <b data-draw="c-max" data-source="coverage_range" data-field="max" data-row="0">—</b>. SEC matches and stage labels were AI-drafted and spot-checked (<b data-draw="q-v2pct" data-source="label_accuracy" data-field="stage_v2_pct" data-row="0">—</b>% of <b data-draw="q-checked" data-source="label_accuracy" data-field="checked" data-row="0">—</b> stages correct), so stages are approximate. First-listed year is not investment year. Alumni is not exited: <b data-draw="l-both" data-source="totals" data-field="alumni_founder_current" data-row="0">—</b> current companies also list an alumni founder.</p>
+      </section>
+
+      <section id="method">
+        <h3 class="pv-sub">Method</h3>
+        <ul>
+          <li>Code and data: <a id="repo-link" href="https://github.com/">GitHub repository</a> (scripts, source CSVs and the JSON files this page reads).</li>
+          <li>Roster, lists and sectors: precursorvc.com, 19 November 2026.</li>
+          <li>Alumni outcomes: website check, then press search. Confidence: high = press, medium = redirect or one source, low = website only.</li>
+          <li>Fund sizes: SEC Form D, except Fund V's April 2025 close (VCWire). Rounds: roster matched to SEC Form D (2015 to 2026); AI approved matches on name, location and founding year; stages by rule.</li>
+          <li>First-listed year: Wayback Machine; copies naming under five companies ignored.</li>
+          <li><b data-draw="l-fonly" data-source="totals" data-field="founders_only" data-row="0">—</b> companies appear only in the founders view (counted).</li>
+        </ul>
+      </section>
+
+      <section id="ax-coverage">
+        <h3 class="pv-sub">Published portfolio counts</h3>
+        <div class="pv-chart" data-draw="coverage-chart" data-source="coverage"></div>
+      </section>
+
+      <section id="ax-vintages">
+        <h3 class="pv-sub">First year listed on the site</h3>
+        <p class="pv-muted">No readable copies for 2018 or after <b data-draw="v-last" data-source="vintage_summary" data-field="last_readable" data-row="0">—</b>; <b data-draw="v-notfound" data-source="vintage_summary" data-field="not_found" data-row="0">—</b> companies undated.</p>
+        <div class="pv-chart" data-draw="vintage-chart" data-source="vintage_by_year"></div>
+      </section>
+
+      <section id="ax-gaps">
+        <h3 class="pv-sub">Months between rounds</h3>
+        <div class="pv-chart" data-draw="gap-chart" data-source="gap_buckets"></div>
+      </section>
+
+      <section id="ax-acq">
+        <h3 class="pv-sub">Acquisitions</h3>
+        <div class="pv-scroll pv-tall">
+          <table id="acquisitions-table" data-source="alumni_status" data-row-key="company">
+            <thead><tr><th data-field="company">Company</th><th data-field="acquirer">Acquirer</th><th data-field="buyer_type">Buyer</th><th data-field="year" class="pv-r">Year</th><th data-field="confidence">Confidence</th><th data-field="source_url">Source</th></tr></thead>
+            <tbody data-draw="acq-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="ax-risks">
+        <h3 class="pv-sub">Website checks</h3>
+        <p class="pv-muted">Filing gaps aren't flagged: Juniper Square's last matched filing is 2019, but it raised a Series D in 2025.</p>
+        <div class="pv-scroll">
+          <table id="risk-table" data-source="current_signals" data-row-key="company">
+            <thead><tr><th data-field="company">Company</th><th data-field="sector">Sector</th><th data-field="flags">Signal</th><th data-field="website">Website checked</th></tr></thead>
+            <tbody data-draw="risk-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="ax-accuracy">
+        <h3 class="pv-sub">AI label accuracy</h3>
+        <p class="pv-muted">AI drafted the SEC matches and labels; a sample was checked against press. The first rule ran a stage late; the revised rule was tuned on the same rounds. Board seats identified the lead <b data-draw="q-lead" data-source="label_accuracy" data-field="leads_ok" data-row="0">—</b> of <b data-draw="q-named" data-source="label_accuracy" data-field="leads_named" data-row="0">—</b> times.</p>
+        <div class="pv-tiles">
+          <div class="pv-panel" id="tile-v1"><div class="pv-num"><span data-draw="q-v1pct3" data-source="label_accuracy" data-field="stage_v1_pct" data-row="0">—</span>%</div><div>Stage right, first rule</div><div class="pv-muted">Before checking</div></div>
+          <div class="pv-panel" id="tile-v2"><div class="pv-num"><span data-draw="q-v2pct2" data-source="label_accuracy" data-field="stage_v2_pct" data-row="0">—</span>%</div><div>Stage right, revised rule</div><div class="pv-muted">Tuned on same rounds</div></div>
+          <div class="pv-panel" id="tile-lead"><div class="pv-num"><span data-draw="q-leadpct" data-source="label_accuracy" data-field="leads_pct" data-row="0">—</span>%</div><div>Leads right</div><div class="pv-muted">Of those named</div></div>
+        </div>
+      </section>
+
+      <section id="matching">
+        <h3 class="pv-sub">SEC matching</h3>
+        <div class="pv-chart" data-draw="match-chart" data-source="match_mix"></div>
+      </section>
+
+      <section id="rounds-detail">
+        <h3 class="pv-sub">Filed rounds</h3>
+        <div class="pv-scroll pv-tall">
+          <table id="rounds-table" data-source="rounds" data-row-key="round_id">
+            <thead><tr><th data-field="company">Company</th><th data-field="sale_date">First sale</th><th data-field="amount_usd_m" class="pv-r">Sold, $M</th><th data-field="stage_group">Stage</th><th data-field="lead_investor">Lead investor</th><th data-field="label_source">Label</th><th data-field="filing_url">Filing</th></tr></thead>
+            <tbody data-draw="rounds-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="checks-detail">
+        <h3 class="pv-sub">Rounds checked against press</h3>
+        <div class="pv-scroll">
+          <table id="checks-table" data-source="label_checks" data-row-key="round_id">
+            <thead><tr><th data-field="company">Company</th><th data-field="sale_date">First sale</th><th data-field="ai_stage">First rule</th><th data-field="ai_stage_v2">Revised rule</th><th data-field="true_stage">Press says</th><th data-field="ai_lead">AI lead</th><th data-field="true_lead">Press lead</th><th data-field="lead_verdict">Lead</th><th data-field="source_url">Source</th></tr></thead>
+            <tbody data-draw="checks-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+
+      <section id="roster">
+        <h3 class="pv-sub">All named companies</h3>
+        <div class="pv-row"><select class="dash-select" data-draw="roster-filter" aria-label="Filter by list or sector" data-source="roster"></select><span class="pv-muted"><span data-draw="roster-count">—</span> shown</span></div>
+        <div class="pv-scroll pv-tall">
+          <table id="roster-table" data-source="roster" data-row-key="company">
+            <thead><tr><th data-field="company">Company</th><th data-field="sector">Sector</th><th data-field="list">List</th><th data-field="alumni_founder">Founder under alumni</th></tr></thead>
+            <tbody data-draw="roster-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </details>
+</div>
+<script>
+dash.calc('totals', {inputs: ['roster', 'counts'], title: 'Portfolio totals', description: 'Counts of named companies set against the number Precursor says it has backed.',
+  fn: (roster, counts) => {
+    const n = (l) => roster.filter((r) => r.list === l).length;
+    const claimed = (counts.find((c) => c.source === 'Precursor: companies backed') || {}).count;
+    const named = roster.length;
+    return [{current: n('Current'), alumni_only: n('Alumni only'), founders_only: n('Founders view only'), named, claimed,
+      share_pct: claimed ? Math.round(100 * named / claimed) : null, unnamed: claimed ? claimed - named : null,
+      alumni_founder_current: roster.filter((r) => r.list === 'Current' && r.alumni_founder === 'Yes').length}];
+  }});
+dash.calc('sector_mix', {inputs: ['roster'], title: 'Current companies by sector', description: 'Current companies counted by Precursor sector label, largest first.',
+  fn: (roster) => {
+    const cur = roster.filter((r) => r.list === 'Current');
+    return d3.rollups(cur, (v) => v.length, (r) => r.sector).map(([sector, count]) => ({sector, count, share_pct: Math.round(100 * count / cur.length)})).sort((a, b) => b.count - a.count);
+  }});
+dash.calc('sector_top2', {inputs: ['roster'], title: 'Share of the two largest sectors', description: 'Percent of current companies in the two largest sectors.',
+  fn: (roster) => {
+    const cur = roster.filter((r) => r.list === 'Current');
+    const c = d3.rollups(cur, (v) => v.length, (r) => r.sector).map((d) => d[1]).sort((a, b) => b - a);
+    return cur.length ? Math.round(100 * (c[0] + (c[1] || 0)) / cur.length) : null;
+  }});
+dash.calc('coverage', {inputs: ['counts', 'roster'], title: 'Portfolio size by source', description: 'Published portfolio counts beside the counts read from the Precursor site.',
+  fn: (counts, roster) => {
+    const n = (l) => roster.filter((r) => r.list === l).length;
+    const own = [{source: 'Precursor site: current list', count: n('Current'), display: String(n('Current')), counts_what: 'companies in the sector list', kind: 'counted'},
+      {source: 'Precursor site: all named', count: roster.length, display: String(roster.length), counts_what: 'current, alumni-only and founders-view companies', kind: 'counted'}];
+    return counts.map((c) => ({source: c.source, count: +c.count, display: c.display, counts_what: c.counts_what, kind: 'published'})).concat(own).sort((a, b) => a.count - b.count);
+  }});
+dash.calc('coverage_range', {inputs: ['counts'], title: 'Range of published counts', description: 'Smallest and largest published portfolio count.',
+  fn: (counts) => [{min: d3.min(counts, (c) => +c.count), max: d3.max(counts, (c) => +c.count)}]});
+dash.calc('outcome_stats', {inputs: ['outcomes'], title: 'Outcome tallies', description: 'Tallies over the ten verified outcomes.',
+  fn: (outcomes) => {
+    const ex = outcomes.filter((o) => o.event === 'Acquisition');
+    return [{exits: ex.length, alumni_exits: ex.filter((o) => o.list === 'Alumni only').length,
+      billion_plus: outcomes.filter((o) => o.event === 'Funding round' && o.list === 'Current' && +o.value_usd_m >= 1000).length}];
+  }});
+dash.calc('alumni_tally', {inputs: ['alumni_status'], title: 'Alumni-only outcome tallies', description: 'Counts of alumni-only companies by outcome, and acquisitions confirmed by press.',
+  fn: (alumni) => [{total: alumni.length,
+    acquired: alumni.filter((r) => r.outcome === 'Acquired').length,
+    acquired_press: alumni.filter((r) => r.outcome === 'Acquired' && r.confidence === 'high').length,
+    shut_down: alumni.filter((r) => r.outcome === 'Shut down').length}]});
+dash.calc('alumni_mix', {inputs: ['alumni_status'], title: 'Alumni-only companies by outcome', description: 'Alumni-only companies counted by outcome, with how many rest on press or a clear redirect.',
+  fn: (alumni) => ['Acquired', 'Operating', 'Shut down', 'Unclear'].map((outcome) => {
+    const v = alumni.filter((r) => r.outcome === outcome);
+    return {outcome, count: v.length, confirmed: v.filter((r) => r.confidence !== 'low').length};
+  })});
+dash.calc('rounds_summary', {inputs: ['rounds'], title: 'Form D round totals', description: 'Companies and rounds found in SEC Form D filings, and the median amount sold.',
+  fn: (rounds) => [{companies: new Set(rounds.map((r) => r.company)).size, rounds: rounds.length,
+    median_usd_m: Math.round(10 * d3.median(rounds, (r) => +r.amount_usd_m)) / 10}]});
+dash.calc('match_mix', {inputs: ['formd_match'], title: 'Roster companies by SEC match result', description: 'Roster companies counted by the outcome of matching them to SEC Form D issuers.',
+  fn: (match) => ['Approved by AI', 'Needs a person', 'All candidates rejected', 'No SEC candidate'].map((decision) => ({decision, companies: match.filter((r) => r.decision === decision).length}))});
+dash.calc('graduation', {inputs: ['rounds'], title: 'Furthest stage reached', description: 'Companies with a filed round, counted at or past each stage by the latest stage label among their rounds.',
+  fn: (rounds) => {
+    const level = {'Note or SAFE': 1, 'Pre-seed': 1, 'Seed': 2, 'Series A': 3, 'Series B': 4, 'Series C+': 5};
+    const top = d3.rollups(rounds, (v) => d3.max(v, (r) => level[r.stage_group] || 0), (r) => r.company).map((d) => d[1]);
+    const n = top.length;
+    return [['Any round filed', 0], ['Seed or later', 2], ['Series A or later', 3], ['Series B or later', 4], ['Series C or later', 5]]
+      .map(([step, l]) => { const c = top.filter((t) => t >= l).length; return {step, companies: c, share_pct: n ? Math.round(100 * c / n) : null}; });
+  }});
+dash.calc('label_accuracy', {inputs: ['label_checks'], title: 'AI label accuracy', description: 'How often the AI stage and lead labels matched press coverage on the checked rounds.',
+  fn: (checks) => {
+    const named = checks.filter((r) => r.ai_lead), ok = named.filter((r) => r.lead_verdict === 'correct').length;
+    const v1 = checks.filter((r) => r.stage_ok === true).length, v2 = checks.filter((r) => r.stage_v2_ok === true).length, n = checks.length;
+    return [{checked: n, stage_v1_ok: v1, stage_v2_ok: v2, stage_v1_pct: n ? Math.round(100 * v1 / n) : null, stage_v2_pct: n ? Math.round(100 * v2 / n) : null,
+      leads_named: named.length, leads_ok: ok, leads_pct: named.length ? Math.round(100 * ok / named.length) : null}];
+  }});
+dash.calc('vintage_by_year', {inputs: ['vintages', 'snapshots'], title: 'Companies by first year listed', description: 'Companies counted by the first year their name appears in a readable archived copy of the site.',
+  fn: (vintages, snapshots) => {
+    const readable = snapshots.filter((s) => +s.names_matched >= 5);
+    const years = d3.range(d3.min(readable, (s) => +s.year), d3.max(readable, (s) => +s.year) + 1);
+    return years.map((y) => ({year_label: String(y), count: vintages.filter((v) => v.first_year === y).length, readable_copies: readable.filter((s) => +s.year === y).length, kind: 'year'}))
+      .concat([{year_label: 'Not found', count: vintages.filter((v) => v.first_year === null || v.first_year === undefined).length, readable_copies: null, kind: 'none'}]);
+  }});
+dash.calc('vintage_summary', {inputs: ['vintages', 'snapshots'], title: 'Archive coverage', description: 'Range of readable archived copies, the busiest listing year, and companies never seen.',
+  fn: (vintages, snapshots) => {
+    const readable = snapshots.filter((s) => +s.names_matched >= 5).map((s) => s.month).sort();
+    const byYear = d3.rollups(vintages.filter((v) => v.first_year), (v) => v.length, (v) => v.first_year).sort((a, b) => b[1] - a[1]);
+    return [{snapshots: snapshots.length, unreadable: snapshots.length - readable.length, first_readable: readable[0] || null,
+      last_readable: readable.length ? readable[readable.length - 1].slice(0, 4) : null, peak_year: byYear.length ? String(byYear[0][0]) : null,
+      not_found: vintages.filter((v) => v.first_year === null || v.first_year === undefined).length}];
+  }});
+
+const fmt = d3.format(',');
+function cell(name, id, field, f) {
+  dash.draw(name, (el) => {
+    const g = dash.data(id);
+    const v = g.status === 'ok' && g.data ? (field === null ? g.data : (g.data[f && f.row || 0] || {})[field]) : null;
+    el.textContent = v === null || v === undefined ? '—' : (typeof v === 'number' ? fmt(v) : String(v)) + ((f && f.suffix) || '');
+  });
+}
+cell('t-share', 'totals', 'share_pct'); cell('t-named', 'totals', 'named'); cell('t-claimed', 'totals', 'claimed'); cell('c-named', 'totals', 'named');
+cell('t-unnamed', 'totals', 'unnamed'); cell('t-current', 'totals', 'current'); cell('l-both', 'totals', 'alumni_founder_current'); cell('l-fonly', 'totals', 'founders_only');
+cell('s-first', 'sector_mix', 'sector'); cell('s-second', 'sector_mix', 'sector', {row: 1}); cell('s-top2', 'sector_top2', null);
+cell('c-min', 'coverage_range', 'min'); cell('c-max', 'coverage_range', 'max'); cell('o-unicorns', 'outcome_stats', 'billion_plus');
+cell('a-acq', 'alumni_tally', 'acquired'); cell('a-acq2', 'alumni_tally', 'acquired'); cell('a-total', 'alumni_tally', 'total');
+cell('a-acqhigh', 'alumni_tally', 'acquired_press'); cell('a-shut', 'alumni_tally', 'shut_down');
+cell('g-apct', 'graduation', 'share_pct', {row: 2}); cell('g-apct2', 'graduation', 'share_pct', {row: 2});
+cell('r-companies', 'rounds_summary', 'companies'); cell('r-median', 'rounds_summary', 'median_usd_m');
+cell('q-v1pct', 'label_accuracy', 'stage_v1_pct'); cell('q-v1pct2', 'label_accuracy', 'stage_v1_pct'); cell('q-v1pct3', 'label_accuracy', 'stage_v1_pct');
+cell('q-v2pct', 'label_accuracy', 'stage_v2_pct'); cell('q-leadpct', 'label_accuracy', 'leads_pct'); cell('q-leadpct2', 'label_accuracy', 'leads_pct');
+cell('q-checked', 'label_accuracy', 'checked'); cell('q-lead', 'label_accuracy', 'leads_ok'); cell('q-named', 'label_accuracy', 'leads_named');
+cell('v-peak', 'vintage_summary', 'peak_year'); cell('v-notfound', 'vintage_summary', 'not_found'); cell('v-last', 'vintage_summary', 'last_readable');
+
+// Bars that carry the point are navy; the rest are context in pale blue, as in the source deck.
+function hbar(el, g, o) {
+  el.replaceChildren();
+  if (g.status !== 'ok' || !g.data || !g.data.length) { el.textContent = g.status === 'error' ? 'Failed to load' : '—'; return; }
+  const rows = g.data, w = Math.max(el.clientWidth, 260), rh = 28, h = rows.length * rh + 4;
+  const hi = (d, i) => o.hi(d, i);
+  const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${w} ${h}`).attr('role', 'img').attr('aria-label', o.label);
+  const y = (i) => i * rh + rh / 2 + 2;
+  const lab = svg.append('g').selectAll('text').data(rows).join('text').text((d) => d[o.name]).attr('class', (d, i) => hi(d, i) ? 'pv-hi' : null).attr('y', (d, i) => y(i)).attr('dy', '0.35em');
+  const val = svg.append('g').selectAll('text').data(rows).join('text').attr('class', (d, i) => hi(d, i) ? 'pv-val pv-hi' : 'pv-val').text(o.value).attr('y', (d, i) => y(i)).attr('dy', '0.35em');
+  let ml = 0, mr = 0;
+  lab.each(function () { ml = Math.max(ml, this.getComputedTextLength()); });
+  val.each(function () { mr = Math.max(mr, this.getComputedTextLength()); });
+  ml = Math.min(ml + 10, w * 0.55); mr += 8;
+  const x = d3.scaleLinear([0, d3.max(rows, (d) => d[o.num]) || 1], [0, Math.max(w - ml - mr, 20)]);
+  svg.insert('g', 'g').selectAll('rect').data(rows).join('rect').attr('x', ml).attr('y', (d, i) => y(i) - 9).attr('height', 18).attr('rx', 4)
+    .attr('width', (d) => Math.max(x(d[o.num]), 1)).style('fill', (d, i) => o.fill ? o.fill(d, i) : hi(d, i) ? 'var(--pv-bar-hi)' : 'var(--pv-bar)');
+  val.attr('x', (d) => ml + x(d[o.num]) + 6);
+  const tip = d3.select(el).append('div').attr('class', 'pv-tip').attr('hidden', '');
+  svg.selectAll('rect,text').on('pointermove', (ev, d) => {
+    tip.attr('hidden', null).text(o.tip(d));
+    const b = el.getBoundingClientRect(), tw = tip.node().offsetWidth;
+    tip.style('left', Math.max(0, Math.min(ev.clientX - b.left + 12, el.clientWidth - tw)) + 'px').style('top', (ev.clientY - b.top + 14) + 'px');
+  }).on('pointerleave', () => tip.attr('hidden', ''));
+}
+dash.draw('coverage-chart', (el) => hbar(el, dash.data('coverage'), {name: 'source', num: 'count', label: 'Bar chart of Precursor portfolio size as reported by each source',
+  value: (d) => d.display, hi: (d) => d.source === 'Precursor: companies backed' || d.source === 'Precursor site: all named',
+  tip: (d) => `${d.source}: ${d.display} ${d.counts_what}`}));
+dash.draw('sector-chart', (el) => hbar(el, dash.data('sector_mix'), {name: 'sector', num: 'count', label: 'Bar chart of current portfolio companies by sector',
+  value: (d) => `${d.count} · ${d.share_pct}%`, hi: (d, i) => i < 2, tip: (d) => `${d.sector}: ${d.count} companies, ${d.share_pct}% of the current list`}));
+dash.draw('alumni-chart', (el) => hbar(el, dash.data('alumni_mix'), {name: 'outcome', num: 'count', label: 'Bar chart of alumni-only companies by outcome',
+  value: (d) => String(d.count), hi: (d) => d.outcome === 'Acquired' || d.outcome === 'Likely inactive',
+  tip: (d) => `${d.outcome}: ${d.count} companies, ${d.confirmed} backed by press or a clear redirect, the rest by website state alone`}));
+dash.draw('grad-chart', (el) => hbar(el, dash.data('graduation'), {name: 'step', num: 'companies', label: 'Bar chart of SEC-traceable companies reaching each funding stage',
+  value: (d) => `${d.companies} · ${d.share_pct}%`, hi: (d) => d.step === 'Series A or later', tip: (d) => `${d.step}: ${d.companies} companies, ${d.share_pct}% of those with a filed round`}));
+dash.draw('vintage-chart', (el) => hbar(el, dash.data('vintage_by_year'), {name: 'year_label', num: 'count', label: 'Bar chart of companies by the first year they appear on the archived site',
+  value: (d) => String(d.count), hi: (d) => d.kind === 'none',
+  tip: (d) => d.kind === 'none' ? `${d.count} companies never appear in a readable copy` : `${d.year_label}: ${d.count} companies first listed; ${d.readable_copies} readable archived copies that year`}));
+dash.draw('match-chart', (el) => hbar(el, dash.data('match_mix'), {name: 'decision', num: 'companies', label: 'Bar chart of roster companies by SEC match result',
+  value: (d) => String(d.companies), hi: (d) => d.decision === 'Approved by AI', tip: (d) => `${d.decision}: ${d.companies} companies`}));
+
+function td(text, cls) { const c = document.createElement('td'); c.textContent = text === null || text === undefined || text === '' ? '—' : String(text); if (cls) c.className = cls; return c; }
+function link(url, label) {
+  const c = document.createElement('td');
+  if (String(url || '').startsWith('https://')) { const a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = label; c.append(a); } else c.textContent = '—';
+  return c;
+}
+function failed(tb, g, cols) {
+  if (g.status !== 'error') return false;
+  const tr = document.createElement('tr'), c = td('Failed to load'); c.colSpan = cols; tr.append(c); tb.replaceChildren(tr); return true;
+}
+dash.draw('acq-body', (tb) => {
+  const g = dash.data('alumni_status'); if (failed(tb, g, 6)) return;
+  const rows = (g.status === 'ok' ? g.data : []).filter((r) => r.outcome === 'Acquired').sort((a, b) => (b.year || 0) - (a.year || 0));
+  tb.replaceChildren(...rows.map((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = encodeURIComponent(r.company);
+    tr.append(td(r.company), td(r.acquirer), td(r.buyer_type), td(r.year, 'pv-r'), td(r.confidence), link(r.source_url, 'Source'));
+    return tr;
+  }));
+});
+const fmt2 = d3.format(',.2f');
+dash.draw('rounds-body', (tb) => {
+  const g = dash.data('rounds'); if (failed(tb, g, 7)) return;
+  tb.replaceChildren(...(g.status === 'ok' ? g.data : []).map((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = encodeURIComponent(r.round_id);
+    tr.append(td(r.company), td(r.sale_date, 'pv-nw'), td(fmt2(+r.amount_usd_m), 'pv-r'), td(r.stage_group), td(r.lead_investor), td(r.label_source), link(r.filing_url, 'SEC'));
+    return tr;
+  }));
+});
+dash.draw('checks-body', (tb) => {
+  const g = dash.data('label_checks'); if (failed(tb, g, 9)) return;
+  tb.replaceChildren(...(g.status === 'ok' ? g.data : []).map((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = encodeURIComponent(r.round_id);
+    tr.append(td(r.company), td(r.sale_date, 'pv-nw'), td(r.ai_stage), td(r.ai_stage_v2), td(r.true_stage), td(r.ai_lead), td(r.true_lead), td(r.lead_verdict), link(r.source_url, 'Source'));
+    return tr;
+  }));
+});
+dash.draw('outcomes-body', (tb) => {
+  const g = dash.data('outcomes'); if (failed(tb, g, 7)) return;
+  tb.replaceChildren(...(g.status === 'ok' ? g.data : []).map((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = encodeURIComponent(r.company);
+    tr.append(td(r.company), td(r.list), td(r.detail), td(r.year, 'pv-r'), td(r.round_usd_m === null ? null : fmt(r.round_usd_m), 'pv-r'), td(r.value_usd_m === null ? null : fmt(r.value_usd_m), 'pv-r'), link(r.source_url, r.source_name));
+    return tr;
+  }));
+});
+
+window.pvFilter = '';
+dash.draw('roster-filter', (sel) => {
+  const g = dash.data('roster'), rows = g.status === 'ok' ? g.data : [];
+  const lists = [...new Set(rows.map((r) => r.list))], sectors = [...new Set(rows.filter((r) => r.list === 'Current').map((r) => r.sector))].sort();
+  sel.replaceChildren(new Option('All companies', ''), ...lists.map((l) => new Option(l, 'list:' + l)), ...sectors.map((s) => new Option(s, 'sector:' + s)));
+  sel.value = window.pvFilter;
+  sel.onchange = () => { window.pvFilter = sel.value; dash.draw('roster-body'); dash.draw('roster-count'); };
+});
+function rosterRows() {
+  const g = dash.data('roster'); if (g.status !== 'ok') return null;
+  const [k, v] = window.pvFilter ? [window.pvFilter.slice(0, window.pvFilter.indexOf(':')), window.pvFilter.slice(window.pvFilter.indexOf(':') + 1)] : [];
+  return g.data.filter((r) => !k || r[k] === v);
+}
+dash.draw('roster-count', (el) => { const r = rosterRows(); el.textContent = r ? fmt(r.length) : '—'; });
+dash.draw('roster-body', (tb) => {
+  tb.replaceChildren(...(rosterRows() || []).map((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = encodeURIComponent(r.company);
+    tr.append(td(r.company), td(r.sector), td(r.list), td(r.alumni_founder));
+    return tr;
+  }));
+});
+
+// Print the appendix too: it is closed on screen.
+window.addEventListener('beforeprint', () => { document.querySelectorAll('details.pv-app').forEach((d) => { d.open = true; }); });
+
+// ---- Public record: funds, follow-ons, thesis, exits, risks ----
+// Precursor's stated thesis, from precursorvc.com/llms.txt (19 Nov 2026).
+const ROUND_CAP_USD_M = 5;      // "pre-seed and seed rounds of $5 million or less"
+const PACE_CLAIM = '30–50';     // Precursor's internship posting, November 2026: "30 to 50 new investments every year"
+dash.draw('k-cap', (el) => { el.textContent = `$${ROUND_CAP_USD_M} million`; });
+dash.draw('k-pace', (el) => { el.textContent = PACE_CLAIM; });
+
+const fundLabel = (f) => f.kind === 'Opportunity fund' ? `Opportunity Fund I (${f.year})`
+  : `Fund ${(f.vehicle.match(/Ventures\s+([IVX]+)\b/) || [, '?'])[1]} (${f.year})`;
+dash.calc('fund_bars', {inputs: ['funds'], title: 'Precursor funds by amount raised', description: 'Main and opportunity funds with the amount sold and the target in their latest Form D.',
+  fn: (funds) => funds.filter((f) => f.kind === 'Main fund' || f.kind === 'Opportunity fund')
+    .map((f) => ({fund: fundLabel(f), kind: f.kind, year: +f.year, sold_usd_m: +(f.amount_usd_m ?? f.sold_usd_m), target_usd_m: f.target_usd_m === null ? null : +f.target_usd_m, investors: +f.investors,
+      source: f.amount_source || 'SEC Form D', as_of: f.amount_date || null}))
+    .sort((a, b) => a.year - b.year)});
+dash.calc('fund_stats', {inputs: ['funds', 'vintages'], title: 'Fund and pace totals', description: 'Main funds and follow-on vehicles raised, and new companies listed per year from 2018 to 2024.',
+  fn: (funds, vintages) => {
+    const main = funds.filter((f) => f.kind === 'Main fund'), og = funds.filter((f) => String(f.kind).startsWith('Follow-on'));
+    const sum = (a) => Math.round(10 * d3.sum(a, (f) => +f.counted_usd_m || 0)) / 10;
+    const listed = vintages.filter((v) => v.first_year >= 2018 && v.first_year <= 2024).length;
+    return [{main_count: main.length, main_total_usd_m: sum(main), followon_count: og.length, followon_total_usd_m: sum(og),
+      first_followon_year: d3.min(og, (f) => +f.year), last_followon_year: d3.max(og, (f) => +f.year), listed_per_year: Math.round(listed / 7)}];
+  }});
+const monthsBetween = (a, b) => (Date.parse(b + 'T00:00:00Z') - Date.parse(a + 'T00:00:00Z')) / (1000 * 60 * 60 * 24 * 30.44);
+function gapsOf(rounds) {
+  const gaps = [];
+  let withF = 0;
+  const by = d3.groups(rounds.filter((r) => r.stage_group !== 'Extension or bridge' && r.sale_date), (r) => r.company);
+  by.forEach(([, v]) => { const d = v.map((r) => r.sale_date).sort(); if (d.length > 1) withF++; for (let i = 1; i < d.length; i++) gaps.push(monthsBetween(d[i - 1], d[i])); });
+  return {gaps, withF, companies: by.length};
+}
+dash.calc('round_gaps', {inputs: ['rounds'], title: 'Time between filed rounds', description: 'Months between consecutive new rounds for SEC-traceable companies, leaving out extensions and bridges.',
+  fn: (rounds) => { const g = gapsOf(rounds); return [{companies: g.companies, with_followon: g.withF, gaps: g.gaps.length, median_months: g.gaps.length ? Math.round(d3.median(g.gaps)) : null}]; }});
+dash.calc('gap_buckets', {inputs: ['rounds'], title: 'Gaps between rounds, grouped', description: 'Gaps between consecutive filed rounds counted by length.',
+  fn: (rounds) => { const g = gapsOf(rounds).gaps;
+    return [['Under 12 months', 0, 12], ['12 to 24 months', 12, 24], ['24 to 36 months', 24, 36], ['36 months or more', 36, Infinity]]
+      .map(([bucket, lo, hi]) => ({bucket, gaps: g.filter((m) => m >= lo && m < hi).length})); }});
+dash.calc('thesis_fit', {inputs: ['rounds'], title: 'First filed round against the stated thesis', description: 'Share of companies whose earliest filed round was within the stated round size, and labelled pre-seed, seed or a note.',
+  fn: (rounds) => {
+    const first = d3.groups(rounds, (r) => r.company).map(([, v]) => v.slice().sort((a, b) => String(a.sale_date).localeCompare(String(b.sale_date)))[0]);
+    const n = first.length, early = ['Note or SAFE', 'Pre-seed', 'Seed'];
+    return [{companies: n, entry_under_cap_pct: n ? Math.round(100 * first.filter((r) => +r.amount_usd_m <= ROUND_CAP_USD_M).length / n) : null,
+      entry_early_pct: n ? Math.round(100 * first.filter((r) => early.includes(r.stage_group)).length / n) : null}];
+  }});
+dash.calc('exit_types', {inputs: ['alumni_status'], title: 'Acquisitions by buyer type', description: 'Acquired alumni-only companies counted by the kind of buyer.',
+  fn: (alumni) => d3.rollups(alumni.filter((r) => r.outcome === 'Acquired'), (v) => v.length, (r) => r.buyer_type || 'Unknown')
+    .map(([buyer_type, count]) => ({buyer_type, count})).sort((a, b) => b.count - a.count)});
+dash.calc('exit_timing', {inputs: ['alumni_status', 'vintages'], title: 'Time from first listing to exit', description: 'Acquisitions, strategic ones, and median years from first listing on the site to the acquisition.',
+  fn: (alumni, vintages) => {
+    const first = new Map(vintages.map((v) => [v.company, v.first_year]));
+    const acq = alumni.filter((r) => r.outcome === 'Acquired');
+    const yrs = acq.filter((r) => r.year && first.get(r.company)).map((r) => r.year - first.get(r.company)).filter((y) => y >= 0);
+    return [{acquired: acq.length, strategic: acq.filter((r) => r.buyer_type === 'Strategic buyer').length, timed: yrs.length, median_years: yrs.length ? d3.median(yrs) : null}];
+  }});
+dash.calc('risk_summary', {inputs: ['current_signals'], title: 'Current companies with websites offline', description: 'Current companies whose website was checked, and how many could not be reached or were for sale.',
+  fn: (sig) => [{checked: sig.filter((r) => r.website_state && r.website_state !== 'Not checked').length, flagged: sig.filter((r) => +r.flag_count > 0).length}]});
+
+cell('f-main', 'fund_stats', 'main_count'); cell('f-total', 'fund_stats', 'main_total_usd_m'); cell('f-og', 'fund_stats', 'followon_count'); cell('f-og2', 'fund_stats', 'followon_count');
+cell('f-ogtotal', 'fund_stats', 'followon_total_usd_m'); cell('f-pace', 'fund_stats', 'listed_per_year');
+dash.draw('f-ogfirst', (el) => { const g = dash.data('fund_stats'); const v = g.status === 'ok' && g.data[0] ? g.data[0].first_followon_year : null; el.textContent = v ? String(v) : '—'; });
+dash.draw('f-oglast', (el) => { const g = dash.data('fund_stats'); const v = g.status === 'ok' && g.data[0] ? g.data[0].last_followon_year : null; el.textContent = v ? String(v) : '—'; });
+cell('fo-median', 'round_gaps', 'median_months'); cell('fo-with', 'round_gaps', 'with_followon'); cell('fo-companies', 'round_gaps', 'companies');
+cell('th-cap', 'thesis_fit', 'entry_under_cap_pct'); cell('th-early', 'thesis_fit', 'entry_early_pct');
+cell('ex-strat', 'exit_timing', 'strategic'); cell('ex-n', 'exit_timing', 'acquired'); cell('ex-years', 'exit_timing', 'median_years');
+cell('rk-flagged', 'risk_summary', 'flagged'); cell('rk-checked', 'risk_summary', 'checked');
+
+dash.draw('fund-chart', (el) => hbar(el, dash.data('fund_bars'), {name: 'fund', num: 'sold_usd_m', label: 'Bar chart of amount raised by each Precursor fund',
+  value: (d) => `$${d.sold_usd_m}M`, hi: (d) => d.kind === 'Main fund',
+  tip: (d) => `${d.fund}: $${d.sold_usd_m}M raised` + (d.target_usd_m ? ` (target $${d.target_usd_m}M)` : '') + `, ${d.investors} investors in filings. Source: ${d.source}` + (d.as_of ? `, ${d.as_of}` : '')}));
+dash.draw('gap-chart', (el) => hbar(el, dash.data('gap_buckets'), {name: 'bucket', num: 'gaps', label: 'Bar chart of months between filed rounds',
+  value: (d) => String(d.gaps), hi: (d) => d.bucket === '12 to 24 months', tip: (d) => `${d.bucket}: ${d.gaps} gaps between rounds`}));
+dash.draw('exit-chart', (el) => hbar(el, dash.data('exit_types'), {name: 'buyer_type', num: 'count', label: 'Bar chart of acquisitions by buyer type',
+  value: (d) => String(d.count), hi: (d) => d.buyer_type === 'Strategic buyer', tip: (d) => `${d.buyer_type}: ${d.count} acquisitions`}));
+dash.draw('risk-body', (tb) => {
+  const g = dash.data('current_signals'); if (failed(tb, g, 4)) return;
+  tb.replaceChildren(...(g.status === 'ok' ? g.data : []).filter((r) => +r.flag_count > 0).map((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = encodeURIComponent(r.company);
+    tr.append(td(r.company), td(r.sector), td(r.flags), link(r.website, String(r.website || '').replace(/^https?:\/\//, '')));
+    return tr;
+  }));
+});
+
+
+// ---- Story layout additions ----
+dash.calc('outcome_mix', {inputs: ['alumni_status'], title: 'Alumni-only companies by outcome and buyer', description: 'Alumni-only companies counted by outcome, splitting acquisitions by whether an operating company bought them.',
+  fn: (alumni) => {
+    const n = (f) => alumni.filter(f).length;
+    return [{outcome: 'Acquired by an operating company', count: n((r) => r.outcome === 'Acquired' && r.buyer_type === 'Strategic buyer'), kind: 'acquired'},
+      {outcome: 'Acquired another way', count: n((r) => r.outcome === 'Acquired' && r.buyer_type !== 'Strategic buyer'), kind: 'acquired'},
+      {outcome: 'Still operating', count: n((r) => r.outcome === 'Operating'), kind: 'other'},
+      {outcome: 'Likely inactive', count: n((r) => r.outcome === 'Shut down'), kind: 'other'},
+      {outcome: 'Unclear', count: n((r) => r.outcome === 'Unclear'), kind: 'other'}];
+  }});
+dash.draw('outcome-chart', (el) => hbar(el, dash.data('outcome_mix'), {name: 'outcome', num: 'count', label: 'Bar chart of alumni-only companies by outcome',
+  value: (d) => String(d.count), hi: (d) => d.kind === 'acquired',
+  tip: (d) => `${d.outcome}: ${d.count} companies` + (d.outcome === 'Acquired another way' ? ' (acqui-hires, a merger and a non-profit)' : '')}));
+cell('f-main2', 'fund_stats', 'main_count'); cell('f-total2', 'fund_stats', 'main_total_usd_m'); cell('f-pace2', 'fund_stats', 'listed_per_year'); cell('a-shut2', 'alumni_tally', 'shut_down');
+
+// ---- Scorecard figures ----
+dash.calc('fund_facts', {inputs: ['funds'], title: 'Fund facts for the scorecard', description: 'Smallest and largest main fund, investors per main fund, and Fund V against its target, from Form D filings.',
+  fn: (funds) => {
+    const main = funds.filter((f) => f.kind === 'Main fund').sort((a, b) => +a.year - +b.year);
+    const v = main.find((f) => /Ventures V[,.\s]/.test(f.vehicle)) || {};
+    const amt = (f) => +(f.amount_usd_m ?? f.sold_usd_m);
+    return [{first_main_usd_m: main.length ? Math.round(10 * amt(main[0])) / 10 : null, largest_main_usd_m: Math.round(10 * d3.max(main, amt)) / 10,
+      min_investors: d3.min(main, (f) => +f.investors), max_investors: d3.max(main, (f) => +f.investors),
+      fund_v_usd_m: v.sold_usd_m === undefined ? null : Math.round(10 * amt(v)) / 10, fund_v_target_usd_m: v.target_usd_m ? +v.target_usd_m : null,
+      fund_v_pct: v.target_usd_m ? Math.round(100 * amt(v) / +v.target_usd_m) : null}];
+  }});
+['fd-first', 'fd-first2'].forEach((n) => cell(n, 'fund_facts', 'first_main_usd_m')); ['fd-largest', 'fd-largest2'].forEach((n) => cell(n, 'fund_facts', 'largest_main_usd_m'));
+cell('fd-invmin', 'fund_facts', 'min_investors'); cell('fd-invmax', 'fund_facts', 'max_investors');
+cell('fd-vsold', 'fund_facts', 'fund_v_usd_m'); cell('fd-vtarget', 'fund_facts', 'fund_v_target_usd_m'); ['fd-vpct', 'fd-vpct2'].forEach((n) => cell(n, 'fund_facts', 'fund_v_pct'));
+cell('th-cap2', 'thesis_fit', 'entry_under_cap_pct'); cell('s-top2b', 'sector_top2', null); cell('o-unicorns2', 'outcome_stats', 'billion_plus');
+cell('r-companies2', 'rounds_summary', 'companies'); cell('f-ogtotal2', 'fund_stats', 'followon_total_usd_m'); cell('q-v2pct2', 'label_accuracy', 'stage_v2_pct');
+
+// ---- Snapshot additions ----
+cell('s-toppct', 'sector_mix', 'share_pct'); cell('fd-vsold2', 'fund_facts', 'fund_v_usd_m'); cell('fd-vtarget2', 'fund_facts', 'fund_v_target_usd_m'); cell('t-claimed2', 'totals', 'claimed'); cell('t-named2', 'totals', 'named');
+
+// Re-measure chart labels once the web fonts have loaded.
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => ['fund-chart', 'sector-chart', 'grad-chart', 'outcome-chart', 'coverage-chart', 'vintage-chart', 'gap-chart', 'match-chart'].forEach((n) => dash.draw(n)));
+
+// Point the "Code and data" link at the repository this page is served from.
+(() => {
+  const a = document.getElementById('repo-link');
+  const host = location.hostname, repo = location.pathname.split('/').filter(Boolean)[0];
+  if (a && host.endsWith('.github.io')) a.href = `https://github.com/${host.split('.')[0]}/${repo || ''}`;
+})();
+</script>
+
+</main>
+</body>
+</html>

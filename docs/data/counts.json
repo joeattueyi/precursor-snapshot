@@ -1,0 +1,53 @@
+{
+ "rows": [
+  {
+   "source": "Seedtable",
+   "count": 100,
+   "display": "100",
+   "counts_what": "companies with a disclosed round",
+   "url": "https://seedtable.com/investors/precursor-ventures/portfolio"
+  },
+  {
+   "source": "Unicorn Nest",
+   "count": 280,
+   "display": "280",
+   "counts_what": "portfolio companies",
+   "url": "https://unicorn-nest.com/funds/precursor-ventures"
+  },
+  {
+   "source": "Caplight",
+   "count": 300,
+   "display": "300",
+   "counts_what": "portfolio companies",
+   "url": "https://www.caplight.com/investor/precursor-ventures"
+  },
+  {
+   "source": "VCBacked",
+   "count": 335,
+   "display": "335",
+   "counts_what": "companies",
+   "url": "https://www.vcbacked.co/directory/investors/precursor-ventures"
+  },
+  {
+   "source": "CB Insights",
+   "count": 348,
+   "display": "348",
+   "counts_what": "investments",
+   "url": "https://www.cbinsights.com/investor/precursor-ventures"
+  },
+  {
+   "source": "Precursor: companies backed",
+   "count": 500,
+   "display": "500+",
+   "counts_what": "companies backed, stated as 500+",
+   "url": "https://precursorvc.com/llms.txt"
+  },
+  {
+   "source": "Full Ratchet podcast",
+   "count": 600,
+   "display": "600",
+   "counts_what": "portfolio companies, per the host",
+   "url": "https://fullratchet.net/?p=10489"
+  }
+ ]
+}

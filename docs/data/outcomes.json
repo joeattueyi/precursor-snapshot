@@ -1,0 +1,114 @@
+{
+ "rows": [
+  {
+   "company": "The Athletic",
+   "list": "Alumni only",
+   "event": "Acquisition",
+   "detail": "Bought by The New York Times",
+   "year": 2022,
+   "round_usd_m": null,
+   "value_usd_m": 550,
+   "source_name": "Axios",
+   "source_url": "https://www.axios.com/2022/01/06/new-york-times-athletic-deal-valuation"
+  },
+  {
+   "company": "Caper",
+   "list": "Alumni only",
+   "event": "Acquisition",
+   "detail": "Bought by Instacart; price is approximate",
+   "year": 2021,
+   "round_usd_m": null,
+   "value_usd_m": 350,
+   "source_name": "TechCrunch",
+   "source_url": "https://techcrunch.com/2021/10/19/instacart-acquires-caper-ai-a-smart-cart-and-instant-checkout-startup-for-350m-as-it-moves-deeper-into-physical-retail-tech"
+  },
+  {
+   "company": "Superhuman",
+   "list": "Alumni only",
+   "event": "Acquisition",
+   "detail": "Bought by Grammarly; terms not disclosed",
+   "year": 2025,
+   "round_usd_m": null,
+   "value_usd_m": null,
+   "source_name": "TechCrunch",
+   "source_url": "https://techcrunch.com/2025/07/01/grammarly-acquires-ai-email-client-superhuman/"
+  },
+  {
+   "company": "Intellimize",
+   "list": "Alumni only",
+   "event": "Acquisition",
+   "detail": "Bought by Webflow; terms not disclosed",
+   "year": 2024,
+   "round_usd_m": null,
+   "value_usd_m": null,
+   "source_name": "Webflow",
+   "source_url": "https://webflow.com/blog/webflow-acquires-intellimize"
+  },
+  {
+   "company": "Betty Labs",
+   "list": "Alumni only",
+   "event": "Acquisition",
+   "detail": "Bought by Spotify; terms not disclosed",
+   "year": 2021,
+   "round_usd_m": null,
+   "value_usd_m": null,
+   "source_name": "Spotify",
+   "source_url": "https://newsroom.spotify.com/2021-03-30/spotify-acquires-locker-room-and-announces-plans-for-a-new-live-audio-experience/"
+  },
+  {
+   "company": "Incredible Health",
+   "list": "Current",
+   "event": "Funding round",
+   "detail": "Series B led by Base10 Partners",
+   "year": 2022,
+   "round_usd_m": 80,
+   "value_usd_m": 1650,
+   "source_name": "TechCrunch",
+   "source_url": "https://techcrunch.com/2022/08/17/incredible-health-series-b/amp/"
+  },
+  {
+   "company": "Modern Health",
+   "list": "Current",
+   "event": "Funding round",
+   "detail": "Series D led by Founders Fund",
+   "year": 2021,
+   "round_usd_m": 74,
+   "value_usd_m": 1170,
+   "source_name": "Fierce Healthcare",
+   "source_url": "https://www.fiercehealthcare.com/tech/mental-health-startup-modern-health-valued-at-1-17b-after-series-d-funding-round"
+  },
+  {
+   "company": "Juniper Square",
+   "list": "Current",
+   "event": "Funding round",
+   "detail": "Series D led by Ribbit Capital",
+   "year": 2025,
+   "round_usd_m": 130,
+   "value_usd_m": 1100,
+   "source_name": "Juniper Square",
+   "source_url": "https://www.junipersquare.com/news/series-d-junie-ai"
+  },
+  {
+   "company": "Rad AI",
+   "list": "Current",
+   "event": "Funding round",
+   "detail": "Series C led by Transformation Capital",
+   "year": 2025,
+   "round_usd_m": 60,
+   "value_usd_m": 525,
+   "source_name": "Rad AI",
+   "source_url": "https://www.radai.com/news/rad-ai-closes-60m-series-c-to-further-solidify-leadership-in-healthcare-generative-ai"
+  },
+  {
+   "company": "Finix",
+   "list": "Current",
+   "event": "Funding round",
+   "detail": "Series C led by Acrew Capital; valuation not disclosed",
+   "year": 2024,
+   "round_usd_m": 75,
+   "value_usd_m": null,
+   "source_name": "Finix",
+   "source_url": "https://finix.com/press/announcing-finix-series-c"
+  }
+ ]
+}

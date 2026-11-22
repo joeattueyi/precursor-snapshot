@@ -1,0 +1,112 @@
+company,sector,status,acquirer,year,confidence,source,checked_by,note
+AMI,B2B Software & AI,Likely shut down,,,low,https://sellwithami.com,AI web search 22 Nov 2026,Website now default hosting page
+API Canary,B2B Software & AI,Likely shut down,,,low,https://apicanary.com,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Bash,Consumer,Acquired,Roblox,2021,high,https://www.gamedeveloper.com/business/roblox-corporation-buys-up-jim-greer-s-bash-video-team,AI web search 22 Nov 2026,Acqui-hire; product shut down
+Betty Labs,Consumer,Acquired,Spotify,2021,high,https://www.axios.com/2021/03/30/spotify-betty-labs-locker-room,AI web search 22 Nov 2026,Locker Room became Spotify Live
+Bizzy,B2B Software & AI,Acquired,SendGrid,2017,medium,https://www.cbinsights.com/company/bizzy1,AI web search 22 Nov 2026,CB Insights lists acquisition 7 Mar 2017
+Block Party,Consumer,Acquired,DeleteMe,2026,high,https://techcrunch.com/2026/03/25/deleteme-acquires-social-media-security-tool-block-party,AI web search 22 Nov 2026,Pivoted to privacy after losing Twitter API in 2023
+Blockstars,Consumer,Likely shut down,,,low,https://blockstars.gg,AI web search 22 Nov 2026,Website now casino spam
+Brightflow AI,B2B Software & AI,Unclear,,,low,https://www.pymnts.com/partnerships/2023/brightflow-ai-acquires-circleup-to-bolster-financial-insights-tool/,AI web search 22 Nov 2026,"Bought CircleUp in 2023, but website certificate no longer matches the domain"
+Butterfly,B2B Software & AI,Likely operating,,,low,https://butterfly.ai,AI web search 22 Nov 2026,Website live
+Canopy,B2B Software & AI,Likely operating,,,low,https://canopyclimate.com,AI web search 22 Nov 2026,Website live
+Caper,Hardware,Acquired,Instacart,2021,high,https://techcrunch.com/2021/10/19/instacart-acquires-caper-ai-a-smart-cart-and-instant-checkout-startup-for-350m-as-it-moves-deeper-into-physical-retail-tech,AI web search 22 Nov 2026,About $350M cash and stock
+Care3,Digital Health,Operating (renamed),,,low,https://care3.co,AI web search 22 Nov 2026,Website redirects to carethree.com
+Charter,Consumer,Operating,,,high,https://www.axios.com/2022/07/19/charter-3-million-seed-round,AI web search 22 Nov 2026,Live site; FT invested 2024
+Cheez,Consumer,Likely shut down,,,low,https://cheez.co,AI web search 22 Nov 2026,Website now parked domain
+Chorus Sleep,Consumer,Acquired,Sleep Reset,2026,high,https://www.thesleepreset.com/blog/sleep-reset-acquires-chorus-sleep-adding-a-personalized-sleep-health-platform-to-its-virtual-sleep-clinic,AI web search 22 Nov 2026,"Buyer's announcement, 22 Apr 2026; terms not disclosed"
+Clutch,Marketplaces,Acquired,Plaiced,2024,high,https://techcrunch.com/2024/07/26/digital-marketing-startup-plaiced-has-acquired-precursor-ventures-backed-clutch,AI web search 22 Nov 2026,Terms not disclosed
+Co-Star,Consumer,Likely operating,,,low,https://costarastrology.com,AI web search 22 Nov 2026,Website live
+Compaas,B2B Software & AI,Likely shut down,,,low,https://compa.as,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Cyber Pop-up,Marketplaces,Unclear,,,low,https://cyberpopup.com,AI web search 22 Nov 2026,"Site reads 'A New Chapter | Rauk AI': rebrand or sale, unclear"
+DogSpot,Consumer,Likely shut down,,,low,https://hellodogspot.com,AI web search 22 Nov 2026,Website now casino spam
+Dor,Hardware,Likely operating,,,low,https://getdor.com,AI web search 22 Nov 2026,Website live
+Dressd,Marketplaces,Likely shut down,,,low,https://dressd.com,AI web search 22 Nov 2026,Website now parked domain
+Mashapp,Consumer,Likely shut down,,,low,https://mash.app,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Dripkit,Consumer,Likely operating,,,low,https://dripkit.coffee,AI web search 22 Nov 2026,Website live (behind bot protection)
+EarlyDay,Marketplaces,Likely operating,,,low,https://earlyday.com,AI web search 22 Nov 2026,Website live
+Elroy Air,Hardware,Operating,,,high,https://www.freightwaves.com/news/elroy-air-raises-40m-for-specialized-military-logistics-drone,AI web search 22 Nov 2026,Live site; Form D filings through Oct 2024
+Eternal,Consumer,Likely shut down,,,low,https://eternal.plus,AI web search 22 Nov 2026,Website now Cloudflare: DNS points to prohibited IP
+Fathom AI,Hardware,Likely shut down,,,low,https://fathomai.com,AI web search 22 Nov 2026,Website now parked domain
+Feedcast,EdTech,Likely shut down,,,low,https://feedcast.me,AI web search 22 Nov 2026,Website now casino spam
+FieldVision,Hardware,Likely shut down,,,low,https://fieldvision.co,AI web search 22 Nov 2026,Website returns 404 (Wix domain not connected)
+Fixt,B2B Software & AI,Acquired,Assurant,2020,high,https://www.businesswire.com/news/home/20200817005054/en/,AI web search 22 Nov 2026,Terms not disclosed
+Fuzzy,Digital Health,Likely operating,,,low,https://yourfuzzy.com,AI web search 22 Nov 2026,Website live ; redirects to fuzzy.com
+GetHuman,Consumer,Likely operating,,,low,https://gethuman.com,AI web search 22 Nov 2026,Website live
+Growth Path,Consumer,Likely shut down,,,low,https://growthpathlabs.com,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Gavel,LegalTech,Likely operating,,,low,https://gavel.io,AI web search 22 Nov 2026,Website live
+Helicarrier,Fintech,Likely shut down,,,low,https://helicarrier.studio,AI web search 22 Nov 2026,Website returns 404
+HingeTo,Marketplaces,Likely shut down,,,low,https://hingeto.com,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Hire Runner,Marketplaces,Likely shut down,,,low,https://hirerunner.co,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Hirepool,Consumer,Likely shut down,,,low,https://hirepool.io,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Honeycomb,Consumer,Likely shut down,,,low,https://joinhoneycomb.com,AI web search 22 Nov 2026,Website now gambling spam
+Hostfully,B2B Software & AI,Likely operating,,,low,https://hostfully.com,AI web search 22 Nov 2026,Website live
+Hype,B2B Software & AI,Acquired,Alta Global Group (NYSE: MMA),2024,high,https://www.nasdaq.com/press-release/alta-global-group-hype-acquisition-will-help-unlock-unparalleled-opportunity-convert,AI web search 22 Nov 2026,
+illume,Consumer,Acquired,Kudoboard,2023,high,https://www.kudoboard.com/illume-is-teaming-up-with-kudoboard/,AI web search 22 Nov 2026,Buyer's announcement says illume joined Kudoboard in late 2023; one review site says 2022
+ImagineCreate AI,B2B Software & AI,Likely operating,,,low,https://imaginecreate.ai,AI web search 22 Nov 2026,Website live
+Influent,Marketplaces,Likely shut down,,,low,https://influentforbrands.com,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Intellimize,B2B Software & AI,Acquired,Webflow,2024,high,https://techcrunch.com/2024/04/19/webflow-intellimize-acquisition-web-development-ai,AI web search 22 Nov 2026,
+Joany,Digital Health,Likely shut down,,,low,https://joany.com,AI web search 22 Nov 2026,Website now parked domain
+Kimoyo Insights,B2B Software & AI,Likely operating,,,low,https://kimoyo.co,AI web search 22 Nov 2026,Website live
+Kinside,B2B Software & AI,Acquired,UrbanSitter,2025,high,https://benefitnews.com/news/urbansitter-and-kinside-are-offering-more-caregiving-options,AI web search 22 Nov 2026,Described as a merger in the press release
+Kraftful,B2B Software & AI,Acquired,Amplitude,2025,high,https://martechseries.com/predictive-ai/ai-platforms-machine-learning/amplitude-acquires-kraftful-to-accelerate-ai-strategy/,AI web search 22 Nov 2026,
+Lacquerbar,Consumer,Likely shut down,,,low,https://lacquerbar.com,AI web search 22 Nov 2026,Website now gambling spam
+Lemon,Fintech,Likely shut down,,,low,https://lemon.co,AI web search 22 Nov 2026,Website now domain for sale
+Lilo,B2B Software & AI,Acquired,Inn-Flow,2026,high,https://hoteltechnologynews.com/2026/05/inn-flow-expands-into-hotel-procurement-with-lilo-acquisition-to-connect-purchasing-with-accounting-and-labor/,AI web search 22 Nov 2026,Co-founders joined Inn-Flow; product runs as Lilo by Inn-Flow
+LingoHealth,Digital Health,Likely shut down,,,low,https://lingohealth.io,AI web search 22 Nov 2026,Website now casino spam
+Littlefund,Fintech,Likely shut down,,,low,https://littlefund.co,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Loris.ai,B2B Software & AI,Acquired,Contentsquare,2025,high,https://contentsquare.com/press/contentsquare-completes-acquisition-of-loris-ai/,AI web search 22 Nov 2026,"Announced Jul 2025, closed Oct 2025"
+Morphin,Consumer,Likely shut down,,,low,https://getmorphin.com,AI web search 22 Nov 2026,Website now domain for sale
+Naya Health,Hardware,Likely shut down,,,low,https://nayahealth.com,AI web search 22 Nov 2026,Website now domain now used by an unrelated London clinic
+Naza,Consumer,Likely operating,,,low,https://www.nazabeauty.com/,AI web search 22 Nov 2026,Website live
+Notch,B2B Software & AI,Likely operating,,,low,https://notch.financial,AI web search 22 Nov 2026,Website live
+Noula,Digital Health,Likely operating,,,low,https://noula.com,AI web search 22 Nov 2026,Website live
+Noyo,Digital Health,Likely operating,,,low,https://noyo.com,AI web search 22 Nov 2026,Website live
+Oliver,Consumer,Likely shut down,,,low,https://oliver.ai,AI web search 22 Nov 2026,Website now parked domain
+Omnee,B2B Software & AI,Likely shut down,,,low,https://omnee.io,AI web search 22 Nov 2026,Website now gambling spam
+Omni,Marketplaces,Likely shut down,,,low,https://beomni.com,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+OnPlan,B2B Software & AI,Likely operating,,,low,https://onplan.co,AI web search 22 Nov 2026,Website live
+OpenSauced,B2B Software & AI,Acquired,Linux Foundation,2024,medium,https://hanselminutes.com/976/next-steps-for-open-sauced-with-brian-douglas,AI web search 22 Nov 2026,Joined the Linux Foundation; terms and structure not public; site now unreachable
+Opaper,B2B Software & AI,Likely operating,,,low,https://opaper.app,AI web search 22 Nov 2026,Website live
+Opsolutely,B2B Software & AI,Likely shut down,,,low,https://opsolutely.com,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+PandaTree,Consumer,Likely operating,,,low,https://pandatree.com,AI web search 22 Nov 2026,Website live
+Passport Shipping,B2B Software & AI,Operating (renamed),,,medium,https://passportshipping.com,AI web search 22 Nov 2026,Rebranded to Passport (passportglobal.com)
+Perspective,Consumer,Likely shut down,,,low,https://joinperspective.com,AI web search 22 Nov 2026,Website returns 404 (Framer site not found)
+Pollen,,Likely shut down,,,low,https://runpollen.com,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Pivo,Fintech,Likely shut down,,,low,https://pivo.africa,AI web search 22 Nov 2026,Website now casino spam
+Populus,B2B Software & AI,Likely operating,,,low,https://populus.ai,AI web search 22 Nov 2026,Website live
+Praxis Labs,B2B Software & AI,Acquired,Torch,2025,high,https://techcrunch.com/2025/07/11/ai-leadership-development-platform-praxis-labs-sells-to-torch,AI web search 22 Nov 2026,
+Pulse,B2B Software & AI,Acquired,Mozilla,2022,high,https://techcrunch.com/2022/12/01/mozilla-acquires-the-team-behind-pulse-an-automated-status-update-tool-for-slack,AI web search 22 Nov 2026,Acqui-hire; product not continued
+Range,B2B Software & AI,Likely operating,,,low,https://range.co,AI web search 22 Nov 2026,Website live
+Rebecca Allen,Consumer,Likely operating,,,low,https://rebecca-allen.com,AI web search 22 Nov 2026,Website live
+SageLink,B2B Software & AI,Likely shut down,,,low,https://sage.link,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Savvy,Insurtech,Likely shut down,,,low,https://gosavvy.com,AI web search 22 Nov 2026,Website now parked domain
+Subcast,,Likely shut down,,,low,https://subcast.com,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Sora,B2B Software & AI,Acquired,ADP,2023,high,https://mediacenter.adp.com/2023-08-03-ADP-Acquires-Sora-Enhancing-Seamless-Integration-Capabilities,AI web search 22 Nov 2026,
+Sounding Board,B2B Software & AI,Likely operating,,,low,https://soundingboardinc.com,AI web search 22 Nov 2026,Website live
+Sparks,Consumer,Likely shut down,,,low,https://sparksystems.com.br,AI web search 22 Nov 2026,Website returns 404 (Wix domain not connected)
+StackShare,B2B Software & AI,Acquired,FOSSA,2024,high,https://techcrunch.com/2024/08/01/open-source-startup-fossa-is-buying-stackshare-a-site-used-by-1-5-million-developers/,AI web search 22 Nov 2026,
+Sudo Technologies,B2B Software & AI,Likely operating,,,low,https://sudo.ai,AI web search 22 Nov 2026,"Website live ; site now about robotics, possible pivot"
+Superhuman,B2B Software & AI,Acquired,Grammarly,2025,high,https://techcrunch.com/2025/07/01/grammarly-acquires-ai-email-client-superhuman/,AI web search 22 Nov 2026,
+Susteau,Consumer,Likely operating,,,low,https://susteau.com,AI web search 22 Nov 2026,Website live (behind bot protection)
+Svrf,Consumer,Acquired,Poplar Studio,2020,high,https://poplar.studio/blog/ar-creative-platform-poplar-acquires-svrf-inc,AI web search 22 Nov 2026,
+Tastemakers,Consumer,Likely shut down,,,low,https://beta.tastemakersafrica.com,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+TaxJoy,B2B Software & AI,Likely shut down,,,low,https://taxjoy.com,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Teampay,Fintech,Acquired,Paystand,2024,high,https://www.businesswire.com/news/home/20240425681206/en/Paystand-Acquires-Teampay-for-Giant-Leap-Toward-B2B-Payment-Revolution,AI web search 22 Nov 2026,
+The Athletic,Consumer,Acquired,The New York Times,2022,high,https://www.axios.com/2022/01/06/new-york-times-athletic-deal-valuation,AI web search 22 Nov 2026,$550M cash
+The Cru,Consumer,Acquired,Luminary,2023,high,https://www.inc.com/sarah-lynch-/exclusive-inside-luminarys-bid-to-acquire-peer-coaching-company-cru.html,AI web search 22 Nov 2026,
+The Relish,Consumer,Likely shut down,,,low,https://therelish.com,AI web search 22 Nov 2026,Website now domain for sale
+The Stroller Store,Marketplaces,Likely shut down,,,low,https://strollerstore.com,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+The Stylist LA,Consumer,Likely shut down,,,low,https://stylistla.com,AI web search 22 Nov 2026,Website now gambling spam
+theBoardlist,Marketplaces,Likely operating,,,low,https://theboardlist.com,AI web search 22 Nov 2026,Website live (behind bot protection)
+Trash,Consumer,Likely operating,,,low,https://trash.app,AI web search 22 Nov 2026,Website live
+Tressle,Consumer,Likely shut down,,,low,https://tressle.com,AI web search 22 Nov 2026,Website now domain for sale
+Tribe Fitness,B2B Software & AI,Likely operating,,,low,https://tribe.fitness,AI web search 22 Nov 2026,Website live
+Vinebase,Marketplaces,Acquired,Corksy,2022,high,https://wineindustryadvisor.com/2022/11/18/corksy-acquires-vinebase/,AI web search 22 Nov 2026,Terms not disclosed
+Visibook,B2B Software & AI,Likely operating,,,low,https://visibook.com,AI web search 22 Nov 2026,Website live
+Werk,Marketplaces,Operating (renamed),,,low,https://saywerk.com,AI web search 22 Nov 2026,Website redirects to werklabs.com
+Whym,B2B Software & AI,Likely shut down,,,low,https://mywhym.co,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Windsor,B2B Software & AI,Likely shut down,,,low,https://windsor.io,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Workhood,B2B Software & AI,Likely operating,,,low,https://workhood.com,AI web search 22 Nov 2026,Website live
+XOCO,Consumer,Likely shut down,,,low,https://sweetalittle.com,AI web search 22 Nov 2026,Website now domain for sale
+Zero,Consumer,Likely shut down,,,low,https://zeroshop.co,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"
+Zeta,Fintech,Likely shut down,,,low,https://askzeta.com,AI web search 22 Nov 2026,"Website unreachable (DNS, timeout or broken certificate)"

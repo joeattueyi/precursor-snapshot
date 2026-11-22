@@ -1,0 +1,8 @@
+# SEC Form D downloads (about 150 MB; re-created by scripts/formd.py)
+data/formd_cache
+formd_cache
+
+# Local and OS files
+.DS_Store
+__pycache__/
+*.pyc
