@@ -45,9 +45,7 @@ An automated "no filing in three years" warning was dropped after it flagged Jun
 
 ## What I would change
 
-- Start from the reader's question. An early version led with caveats; the useful version leads with facts and puts limits in an appendix.
-- Test the stage rule on rounds it was not tuned on.
-- Have a person clear the 97 company matches still awaiting review.
+- Get access to Precursor Ventures internal data rooms to augment the current analysis
 - Reconcile Fund IV: its Form D shows $73.2M, while one press account implies about $82.5M.
 
 ## Reproduce
@@ -75,4 +73,4 @@ docs/      the dashboard (GitHub Pages serves this folder)
 
 ## License
 
-Code is MIT licensed. Data is compiled from the public sources above; each outcome row links to its source.
+Code is MIT licensed. Data is compiled from the public sources above
