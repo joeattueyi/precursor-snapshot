@@ -2,7 +2,7 @@
 
 How much can public data tell you about a venture fund? This builds a diligence snapshot of Precursor Ventures from public records only.
 
-**Live dashboard:** `https://<your-username>.github.io/precursor-snapshot/`
+**Live dashboard:** [joeattueyi.github.io/precursor-snapshot](https://joeattueyi.github.io/precursor-snapshot/)
 
 Independent analysis; not affiliated with Precursor Ventures. Data as of November 2026.
 
